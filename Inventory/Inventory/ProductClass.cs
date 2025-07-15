@@ -16,13 +16,13 @@ public class ProductClass
         string Description)
     {
         
-        this._ProductName = ProductName;
-        this._Category = Category;
-        this._ManufacturingDate = MfgDate;
-        this._ExpirationDate = ExpDate;
-        this._SellingPrice = Price;
-        this._Quantity = Quantity;
-        this._Description = Description;
+        _ProductName = ProductName;
+        _Category = Category;
+        _ManufacturingDate = MfgDate;
+        _ExpirationDate = ExpDate;
+        _SellingPrice = Price;
+        _Quantity = Quantity;
+        _Description = Description;
         
     }
     

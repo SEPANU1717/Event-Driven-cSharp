@@ -21,7 +21,7 @@ namespace Inventory
 
         private void frmAddproduct_Load(object sender, EventArgs e)
         {
-            string[] ListOfProductCategory =
+            cbCategory.Items.AddRange(new object[]
             {
                 "Beverages",
                 "Bread/Bakery",
@@ -31,12 +31,8 @@ namespace Inventory
                 "Meat",
                 "Personel Care",
                 "Other"
-            };
+            });
 
-            foreach (var productCategory in ListOfProductCategory)
-            {
-                cbCategory.Items.Add(productCategory);
-            }
         }
 
         public string Product_Name(string name)
@@ -57,7 +53,7 @@ namespace Inventory
     }
     finally
     {
-        
+        Console.WriteLine("Product name validation completed.");
     }
 }
 
@@ -86,7 +82,7 @@ namespace Inventory
             
             finally
             {
-                
+                Console.WriteLine("Quantity validation completed.");
             }
             
         }
@@ -112,6 +108,10 @@ namespace Inventory
             {
                 MessageBox.Show(e.Message, "Invalid Price", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
+            }
+            finally
+            {
+                Console.WriteLine("Price validation completed.");
             }
         }
 
