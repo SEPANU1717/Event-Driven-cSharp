@@ -7,40 +7,38 @@ public partial class frmCalculator : Form
     {
         InitializeComponent();
         cal = new CalculatorClass();
-        string [] operators = { "+", "-", "*", "/"};
-        foreach(var operaor in operators)
-            cbOperator.Items.Add(operaor);
+        cbOperator.Items.AddRange(new object[] {"+", "-", "*", "/"});
     }
 
     private void btnEqual_Click(object sender, EventArgs e)
     {
-        double num1 = double.Parse(txtBoxInput1.Text);
-        double num2 = double.Parse(txtBoxInput2.Text);
-        string op = cbOperator.SelectedItem.ToString();
+        var num1 = double.Parse(txtBoxInput1.Text);
+        var num2 = double.Parse(txtBoxInput2.Text);
+        var op = cbOperator.SelectedItem.ToString();
         double result = 0;
         try
         {
             switch (op)
             {
                 case "+":
-                    cal.eventCalculate += new CalculateEvent(cal.GetSum);
+                    cal.eventCalculate += (cal.GetSum);
                     result = cal.GetSum(num1, num2);
-                    cal.eventCalculate -= new CalculateEvent(cal.GetSum);
+                    cal.eventCalculate -= (cal.GetSum);
                     break;
                 case "-":
-                    cal.eventCalculate += new CalculateEvent(cal.GetDifference);
+                    cal.eventCalculate += (cal.GetDifference);
                     result = cal.GetDifference(num1, num2);
-                    cal.eventCalculate -= new CalculateEvent(cal.GetDifference);
+                    cal.eventCalculate -= (cal.GetDifference);
                     break;
                 case "*":
-                    cal.eventCalculate += new CalculateEvent(cal.GetProduct);
+                    cal.eventCalculate += (cal.GetProduct);
                     result = cal.GetProduct(num1, num2);
-                    cal.eventCalculate -= new CalculateEvent(cal.GetProduct);
+                    cal.eventCalculate -= (cal.GetProduct);
                     break;
                 case "/":
-                    cal.eventCalculate += new CalculateEvent(cal.GetQuotient);
+                    cal.eventCalculate += (cal.GetQuotient);
                     result = cal.GetQuotient(num1, num2);
-                    cal.eventCalculate -= new CalculateEvent(cal.GetQuotient);
+                    cal.eventCalculate -= (cal.GetQuotient);
                     break;
             }
             lblDisplayTotal.Text = result.ToString();
