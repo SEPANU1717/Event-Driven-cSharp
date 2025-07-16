@@ -45,7 +45,8 @@ public partial class FrmRegistration : Form
     {
         try
         {
-            var fileName = FrmFileName.SetFileName;
+            
+            var fileName = FrmFileName.SetFileName ?? String.Empty;
             var path = Path.Combine(@"C:\Users\emsii\Downloads", fileName);
             var fullName = $"{tFirst.Text} {tMiidle.Text} {tLast.Text}";
 
@@ -79,5 +80,12 @@ public partial class FrmRegistration : Form
             MessageBox.Show(this, "Registration Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+    }
+
+    private void btnRecords_Click(object sender, EventArgs e)
+    {
+        FrmStudentRecord record = new();
+        Hide();
+        record.ShowDialog();
     }
 }

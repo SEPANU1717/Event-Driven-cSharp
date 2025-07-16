@@ -17,7 +17,7 @@ public partial class FrmLab1 : Form
         var getInput = txtInput.Text;
         var docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-        using StreamWriter outputFile = new(Path.Combine(docPath, FrmFileName.SetFileName));
+        using StreamWriter outputFile = new(Path.Combine(docPath, FrmFileName.SetFileName ?? string.Empty));
         outputFile.WriteLine(getInput);
         Console.WriteLine(getInput);
     }

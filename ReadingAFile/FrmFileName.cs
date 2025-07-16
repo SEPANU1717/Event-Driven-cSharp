@@ -2,7 +2,7 @@
 
 public partial class FrmFileName : Form
 {
-    public static string SetFileName;
+    public static string? SetFileName;
     public FrmFileName()
     {
         InitializeComponent();

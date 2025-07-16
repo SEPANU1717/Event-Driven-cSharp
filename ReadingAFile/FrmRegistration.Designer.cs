@@ -50,6 +50,8 @@ partial class FrmRegistration
         label9 = new System.Windows.Forms.Label();
         dtpBday = new System.Windows.Forms.DateTimePicker();
         bRegister = new System.Windows.Forms.Button();
+        btnRecords = new System.Windows.Forms.Button();
+        label10 = new System.Windows.Forms.Label();
         SuspendLayout();
         // 
         // tStudentNum
@@ -232,7 +234,7 @@ partial class FrmRegistration
         bRegister.BackColor = System.Drawing.Color.FromArgb(((int)((byte)224)), ((int)((byte)251)), ((int)((byte)252)));
         bRegister.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)0));
         bRegister.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)61)), ((int)((byte)90)), ((int)((byte)128)));
-        bRegister.Location = new System.Drawing.Point(518, 471);
+        bRegister.Location = new System.Drawing.Point(360, 498);
         bRegister.Name = "bRegister";
         bRegister.Size = new System.Drawing.Size(140, 33);
         bRegister.TabIndex = 18;
@@ -240,12 +242,37 @@ partial class FrmRegistration
         bRegister.UseVisualStyleBackColor = false;
         bRegister.Click += bRegister_Click;
         // 
+        // btnRecords
+        // 
+        btnRecords.BackColor = System.Drawing.Color.FromArgb(((int)((byte)224)), ((int)((byte)251)), ((int)((byte)252)));
+        btnRecords.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)0));
+        btnRecords.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)61)), ((int)((byte)90)), ((int)((byte)128)));
+        btnRecords.Location = new System.Drawing.Point(516, 498);
+        btnRecords.Name = "btnRecords";
+        btnRecords.Size = new System.Drawing.Size(140, 33);
+        btnRecords.TabIndex = 19;
+        btnRecords.Text = "Records";
+        btnRecords.UseVisualStyleBackColor = false;
+        btnRecords.Click += btnRecords_Click;
+        // 
+        // label10
+        // 
+        label10.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)0));
+        label10.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)224)), ((int)((byte)251)), ((int)((byte)252)));
+        label10.Location = new System.Drawing.Point(52, 35);
+        label10.Name = "label10";
+        label10.Size = new System.Drawing.Size(207, 44);
+        label10.TabIndex = 20;
+        label10.Text = "Registration";
+        // 
         // FrmRegistration
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         BackColor = System.Drawing.Color.FromArgb(((int)((byte)61)), ((int)((byte)90)), ((int)((byte)128)));
         ClientSize = new System.Drawing.Size(724, 588);
+        Controls.Add(label10);
+        Controls.Add(btnRecords);
         Controls.Add(bRegister);
         Controls.Add(dtpBday);
         Controls.Add(label9);
@@ -269,6 +296,10 @@ partial class FrmRegistration
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.Label label10;
+
+    private System.Windows.Forms.Button btnRecords;
 
     private System.Windows.Forms.Button bRegister;
 
