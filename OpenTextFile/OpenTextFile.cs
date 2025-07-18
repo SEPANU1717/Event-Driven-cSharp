@@ -1,8 +1,8 @@
 namespace OpenTextFile;
 
-public partial class Form1 : Form
+public partial class OpenTextFile : Form
 {
-    public Form1()
+    public OpenTextFile()
     {
         InitializeComponent();
     }
@@ -19,7 +19,7 @@ public partial class Form1 : Form
         using (var streamReader = new StreamReader(path))
         {
             string _getText = string.Empty;
-            while ((_getText = streamReader.ReadLine()) != null)
+            while ((_getText = streamReader.ReadLine()??String.Empty) != null)
             {
                 Console.WriteLine(_getText);
                 lvShowText.Items.Add(_getText);

@@ -1,6 +1,6 @@
 ﻿namespace OpenTextFile;
 
-partial class Form1
+partial class OpenTextFile
 {
     /// <summary>
     ///  Required designer variable.
