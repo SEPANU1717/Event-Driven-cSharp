@@ -19,7 +19,7 @@ public partial class OpenTextFile : Form
         using (var streamReader = new StreamReader(path))
         {
             string _getText = string.Empty;
-            while ((_getText = streamReader.ReadLine()??String.Empty) != null)
+            while ((_getText = streamReader.ReadLine()) != null)
             {
                 Console.WriteLine(_getText);
                 lvShowText.Items.Add(_getText);
