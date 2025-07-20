@@ -6,7 +6,7 @@ public class ClubMember
     public long StudentId { get; set; }
     public string FirstName { get; set; }
     public string? MiddleName { get; set; }
-    public string LastnName { get; set; }
+    public string LastName { get; set; }
     public int Age { get; set; }
     public string Gender { get; set; }
     public String Program { get; set; }

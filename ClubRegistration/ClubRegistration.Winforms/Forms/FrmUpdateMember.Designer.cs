@@ -58,6 +58,7 @@ partial class FrmUpdateMember
         UpdateStudID.Name = "UpdateStudID";
         UpdateStudID.Size = new System.Drawing.Size(258, 33);
         UpdateStudID.TabIndex = 0;
+        UpdateStudID.SelectedIndexChanged += UpdateStudID_SelectedIndexChanged;
         // 
         // UpdateGender
         // 
@@ -206,6 +207,7 @@ partial class FrmUpdateMember
         bConfirm.TabIndex = 15;
         bConfirm.Text = "Confirm";
         bConfirm.UseVisualStyleBackColor = false;
+        bConfirm.Click += bConfirm_Click;
         // 
         // FrmUpdateMember
         // 
@@ -230,6 +232,7 @@ partial class FrmUpdateMember
         Controls.Add(UpdateGender);
         Controls.Add(UpdateStudID);
         Text = "FrmUpdateMember";
+        Load += FrmUpdateMember_Load;
         ResumeLayout(false);
         PerformLayout();
     }

@@ -8,4 +8,7 @@ public interface IClubRegistrationQuery
     bool RegisterStudent(ClubMember clubMember);
     DataTable DisplayList();
     bool UpdateClubMember(ClubMember clubMember);
+    public List<long> GetAllStudentIds();
+
+    ClubMember GetClubMemberById(long id);
 }

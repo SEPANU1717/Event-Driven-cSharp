@@ -47,8 +47,8 @@ partial class FrmClubRegistration
         dgListOfClubMembers = new System.Windows.Forms.DataGridView();
         label7 = new System.Windows.Forms.Label();
         bRefresh = new System.Windows.Forms.Button();
-        button1 = new System.Windows.Forms.Button();
-        button2 = new System.Windows.Forms.Button();
+        btnRegister = new System.Windows.Forms.Button();
+        btnUpdate = new System.Windows.Forms.Button();
         ((System.ComponentModel.ISupportInitialize)dgListOfClubMembers).BeginInit();
         SuspendLayout();
         // 
@@ -228,30 +228,33 @@ partial class FrmClubRegistration
         bRefresh.TabIndex = 17;
         bRefresh.Text = "Refresh";
         bRefresh.UseVisualStyleBackColor = false;
+        bRefresh.Click += bRefresh_Click;
         // 
-        // button1
+        // btnRegister
         // 
-        button1.BackColor = System.Drawing.Color.FromArgb(((int)((byte)224)), ((int)((byte)251)), ((int)((byte)252)));
-        button1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)0));
-        button1.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)61)), ((int)((byte)90)), ((int)((byte)128)));
-        button1.Location = new System.Drawing.Point(957, 197);
-        button1.Name = "button1";
-        button1.Size = new System.Drawing.Size(140, 47);
-        button1.TabIndex = 18;
-        button1.Text = "Register";
-        button1.UseVisualStyleBackColor = false;
+        btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)((byte)224)), ((int)((byte)251)), ((int)((byte)252)));
+        btnRegister.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)0));
+        btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)61)), ((int)((byte)90)), ((int)((byte)128)));
+        btnRegister.Location = new System.Drawing.Point(957, 197);
+        btnRegister.Name = "btnRegister";
+        btnRegister.Size = new System.Drawing.Size(140, 47);
+        btnRegister.TabIndex = 18;
+        btnRegister.Text = "Register";
+        btnRegister.UseVisualStyleBackColor = false;
+        btnRegister.Click += button1_Click;
         // 
-        // button2
+        // btnUpdate
         // 
-        button2.BackColor = System.Drawing.Color.FromArgb(((int)((byte)224)), ((int)((byte)251)), ((int)((byte)252)));
-        button2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)0));
-        button2.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)61)), ((int)((byte)90)), ((int)((byte)128)));
-        button2.Location = new System.Drawing.Point(957, 268);
-        button2.Name = "button2";
-        button2.Size = new System.Drawing.Size(140, 47);
-        button2.TabIndex = 19;
-        button2.Text = "Update";
-        button2.UseVisualStyleBackColor = false;
+        btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)((byte)224)), ((int)((byte)251)), ((int)((byte)252)));
+        btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)0));
+        btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)61)), ((int)((byte)90)), ((int)((byte)128)));
+        btnUpdate.Location = new System.Drawing.Point(957, 268);
+        btnUpdate.Name = "btnUpdate";
+        btnUpdate.Size = new System.Drawing.Size(140, 47);
+        btnUpdate.TabIndex = 19;
+        btnUpdate.Text = "Update";
+        btnUpdate.UseVisualStyleBackColor = false;
+        btnUpdate.Click += button2_Click;
         // 
         // FrmClubRegistration
         // 
@@ -259,8 +262,8 @@ partial class FrmClubRegistration
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         BackColor = System.Drawing.Color.FromArgb(((int)((byte)61)), ((int)((byte)90)), ((int)((byte)128)));
         ClientSize = new System.Drawing.Size(1221, 842);
-        Controls.Add(button2);
-        Controls.Add(button1);
+        Controls.Add(btnUpdate);
+        Controls.Add(btnRegister);
         Controls.Add(bRefresh);
         Controls.Add(label7);
         Controls.Add(dgListOfClubMembers);
@@ -280,13 +283,14 @@ partial class FrmClubRegistration
         Controls.Add(label1);
         Controls.Add(tStudentID);
         Text = "Form1";
+        Load += FrmClubRegistration_Load;
         ((System.ComponentModel.ISupportInitialize)dgListOfClubMembers).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
 
-    private System.Windows.Forms.Button button1;
-    private System.Windows.Forms.Button button2;
+    private System.Windows.Forms.Button btnRegister;
+    private System.Windows.Forms.Button btnUpdate;
 
     private System.Windows.Forms.Button bRefresh;
 
