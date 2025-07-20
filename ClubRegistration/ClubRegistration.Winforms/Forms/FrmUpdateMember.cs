@@ -1,13 +1,16 @@
-﻿using ClubRegistration.WinForms.Services;
+﻿using ClubRegistration.WinForms.Entities;
+using ClubRegistration.WinForms.Services;
 
 namespace ClubRegistration.WinForms.Forms;
 
 public partial class FrmUpdateMember : Form
 {
-    public FrmUpdateMember()
+    private FrmClubRegistration _mainForm;
+    public FrmUpdateMember(FrmClubRegistration mainForm)
     {
         InitializeComponent();
         ComboBoxValues();
+        _mainForm = mainForm;
     }
 
     private void ComboBoxValues()
@@ -27,13 +30,41 @@ public partial class FrmUpdateMember : Form
             "Male", "Female", "Prefer not to say", "Other"
         });
     }
-
-    private void bConfirm_Click(object sender, EventArgs e)
+    private void UpdateSwitching()
     {
         MessageBox.Show("Member details updated successfully!", "Update Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
         FrmClubRegistration Register = new();
         Hide();
         Register.ShowDialog();
+    }
+    private void bConfirm_Click(object sender, EventArgs e)
+    {
+        
+        var updatedInfo = new ClubMember()
+        {
+            StudentId = long.Parse(UpdateStudID.Text),
+            FirstName = UpdateFirstName.Text,
+            MiddleName = string.IsNullOrWhiteSpace(UpdateMiddleName.Text) ? null : UpdateMiddleName.Text,
+            LastName = UpdatelastName.Text,
+            Age = int.Parse(UpdateAge.Text),
+            Gender = UpdateGender.SelectedItem?.ToString() ?? "Prefer not to say",
+            Program = UpdateProgram.SelectedItem?.ToString()
+            
+        };
+        var service = new ClubRegistrationQuery();
+        bool success = service.UpdateClubMember(updatedInfo);
+
+        if (success)
+        {
+            UpdateSwitching();
+            _mainForm.RefreshListOfClubMembers();
+            Close(); 
+            
+        }
+        else
+        {
+            MessageBox.Show("Failed to update","Update failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 
     private void FrmUpdateMember_Load(object sender, EventArgs e)

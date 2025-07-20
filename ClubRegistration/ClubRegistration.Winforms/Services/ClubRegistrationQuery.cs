@@ -61,7 +61,23 @@ public class ClubRegistrationQuery : IClubRegistrationQuery
 
     public bool UpdateClubMember(ClubMember clubMember)
     {
-        throw new NotImplementedException();
+        using (sqlConnect = new SqlConnection(connectionString))
+        using (sqlCommand = new SqlCommand(
+                   "UPDATE ClubMembers SET FirstName = @FirstName, MiddleName = @MiddleName, LastName = @LastName, " +
+                   "Age = @Age, Gender = @Gender, Program = @Program WHERE StudentId = @StudentId", sqlConnect))
+        {
+            sqlCommand.Parameters.AddWithValue("@FirstName", clubMember.FirstName);
+            sqlCommand.Parameters.AddWithValue("@MiddleName", clubMember.MiddleName ?? "N/A");
+            sqlCommand.Parameters.AddWithValue("@LastName", clubMember.LastName);
+            sqlCommand.Parameters.AddWithValue("@Age", clubMember.Age);
+            sqlCommand.Parameters.AddWithValue("@Gender", clubMember.Gender);
+            sqlCommand.Parameters.AddWithValue("@Program", clubMember.Program);
+            sqlCommand.Parameters.AddWithValue("@StudentID", clubMember.StudentId);
+            
+            sqlConnect.Open();
+            int rowsAffected = sqlCommand.ExecuteNonQuery();
+            return rowsAffected > 0;
+        }
     }
 
     public List<long> GetAllStudentIds()
