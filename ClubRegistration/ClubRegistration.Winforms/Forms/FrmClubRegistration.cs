@@ -39,7 +39,7 @@ namespace ClubRegistration.WinForms.Forms
             FrmUpdateMember updateMember = new FrmUpdateMember(this);
             Hide();
             updateMember.ShowDialog();
-            Show(); 
+            Show();
         }
 
         public void RefreshListOfClubMembers()
@@ -58,6 +58,7 @@ namespace ClubRegistration.WinForms.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Validation();
             var clubMember = new ClubMember
             {
                 Id = RegistrationId(),
@@ -77,6 +78,25 @@ namespace ClubRegistration.WinForms.Forms
         private void bRefresh_Click(object sender, EventArgs e)
         {
             RefreshListOfClubMembers();
+        }
+
+        private void Validation()
+        {
+            if (string.IsNullOrWhiteSpace(tAge.Text) ||
+                string.IsNullOrWhiteSpace(tFiirstName.Text) ||
+                string.IsNullOrWhiteSpace(tLastName.Text) ||
+                string.IsNullOrWhiteSpace(tStudentID.Text) ||
+                cGender.SelectedItem is null ||
+                cProgram.SelectedItem is null)
+            {
+                MessageBox.Show("Please fill in all fields correctly.", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Successfully registered!", "Registration Success", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
     }
 }
