@@ -12,6 +12,9 @@
       <Compile Update="Forms\FrmBasicThread.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="ThreadPriority\frmTrackThread.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>
